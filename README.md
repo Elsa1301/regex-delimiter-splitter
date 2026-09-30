@@ -33,3 +33,10 @@ The main trade-off is that captured groups are moved out of the parts list and i
 ## Edge cases
 
 An empty regex pattern `""` matches at every position, including the start and end of the string. The result for `"abc"` is `parts=['', 'a', 'b', 'c', '']` with three zero-width delimiter matches. This matches `re.split` semantics and is intentional, but can surprise callers expecting a no-op.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
