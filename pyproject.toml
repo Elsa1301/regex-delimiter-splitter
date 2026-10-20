@@ -1,6 +1,6 @@
 [project]
 name = "regex-delimiter-splitter"
-version = "0.1.2"
+version = "0.1.3"
 description = "Splits strings on regex patterns while keeping track of match positions and captured groups."
 requires-python = ">=3.10"
 dependencies = []
